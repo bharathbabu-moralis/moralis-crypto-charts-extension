@@ -119,32 +119,53 @@
         color: #68738d;
         padding: 20px;
         line-height: 1.6;
-        width: 90%;
+        width: 85%;
+        background: rgba(13, 32, 53, 0.3);
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
       }
 
       .instructions h2 {
         color: #6b8aff;
-        margin-bottom: 16px;
-        font-size: 18px;
+        margin-bottom: 20px;
+        font-size: 24px;
         font-weight: 600;
       }
 
       .instructions p {
-        margin: 8px 0;
-        font-size: 14px;
+        margin: 8px 0 20px;
+        font-size: 15px;
+        color: #8494b2;
       }
 
       .method {
         background: rgba(13, 32, 53, 0.5);
-        padding: 12px;
-        border-radius: 6px;
+        padding: 16px;
+        border-radius: 8px;
         margin: 12px 0;
-        border: 1px solid rgba(107, 138, 255, 0.1);
-        transition: background 0.3s ease;
+        border: 1px solid rgba(107, 138, 255, 0.15);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      .method:before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: rgba(107, 138, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 12px;
+        border: 1px solid rgba(107, 138, 255, 0.2);
+        flex-shrink: 0;
       }
 
       .method:hover {
         background: rgba(13, 32, 53, 0.7);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
     </style>
   </head>
@@ -316,7 +337,7 @@
           </defs>
         </svg>
       </div>
-      <div class="app-title">Moralis Chart Extension</div>
+      <div class="app-title">Moralis Crypto Charts</div>
     </div>
     <div class="input-container">
       <input
@@ -328,14 +349,14 @@
     </div>
     <div id="chart-container">
       <div class="instructions">
-        <h2>Welcome!</h2>
-        <p>Two ways to view token charts</p>
+        <h2>Get Started</h2>
+        <p>View price charts for any Solana token in two simple ways!</p>
         <div class="method">
-          1. Paste a token address above and click "View Chart"
+          Paste a token address above and click "View Chart"
         </div>
         <div class="method">
-          2. Select any token address on a webpage, right-click, and choose
-          "View Chart"
+          Select any token address on a webpage, right-click, and choose "View
+          Chart"
         </div>
       </div>
       <div id="price-chart-widget-container"></div>

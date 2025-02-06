@@ -86,9 +86,26 @@ const createPoweredByLink = (baseUrl, chainId, utmParams, config) => {
     color: "#68738D",
     fontFamily: "Arial, sans-serif",
     lineHeight: "14.4px",
+    display: "flex",
+    alignItems: "center",
   });
-  text.textContent = "Powered by Moralis";
+  text.textContent = "View Token on Moralis";
 
+  const externalLinkIcon = document.createElement("span");
+  Object.assign(externalLinkIcon.style, {
+    marginLeft: "4px",
+    width: "10px",
+    height: "10px",
+    display: "inline-block",
+  });
+  externalLinkIcon.innerHTML = `
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 8H2V2H5V1H2C1.45 1 1 1.45 1 2V8C1 8.55 1.45 9 2 9H8C8.55 9 9 8.55 9 8V5H8V8Z" fill="#68738D"/>
+      <path d="M6 1V2H7.59L3.76 5.83L4.17 6.24L8 2.41V4H9V1H6Z" fill="#68738D"/>
+    </svg>
+  `;
+
+  text.appendChild(externalLinkIcon);
   link.appendChild(img);
   link.appendChild(text);
 
