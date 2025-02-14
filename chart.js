@@ -4,6 +4,7 @@ const isNotNil = (value) => !isNil(value);
 const CHAIN_IDS = {
   solana: "solana",
   "0x1": "ethereum",
+  "0x7e4": "ronin",
   "0x38": "binance",
   "0x2105": "base",
   "0xa4b1": "arbitrum",
@@ -13,7 +14,6 @@ const CHAIN_IDS = {
   "0xe708": "linea",
   "0xfa": "fantom",
   "0x171": "pulse",
-  "0x7e4": "ronin",
 };
 
 const getBackgroundColor = (config) =>

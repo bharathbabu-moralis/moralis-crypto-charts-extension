@@ -312,6 +312,48 @@
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
+
+      .loading-indicator {
+        margin-top: 24px;
+      }
+
+      .pulse {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #6b8aff;
+        margin: 0 auto;
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(0.8);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(0.8);
+          opacity: 0.5;
+        }
+      }
+
+      .instructions h3 {
+        color: white;
+        margin-bottom: 15px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .instructions p {
+        color: #8494b2;
+        margin-bottom: 30px;
+        font-size: 15px;
+        line-height: 1.4;
+      }
     </style>
   </head>
   <body>
@@ -496,6 +538,7 @@
           <option value="" disabled selected>Select Chain</option>
           <option value="solana">Solana</option>
           <option value="0x1">Ethereum</option>
+          <option value="0x7e4">Ronin</option>
           <option value="0x38">BNB Chain</option>
           <option value="0x2105">Base</option>
           <option value="0xa4b1">Arbitrum</option>
@@ -505,7 +548,6 @@
           <option value="0xe708">Linea</option>
           <option value="0xfa">Fantom</option>
           <option value="0x171">Pulse</option>
-          <option value="0x7e4">Ronin</option>
         </select>
       </div>
     </div>
@@ -513,9 +555,10 @@
       <div class="instructions">
         <h2>Get Started!</h2>
         <p>
-          Start by pasting a token address or by simply selecting a CA, right
+          Start by pasting a token address or by simply selecting it, right
           click and view chart!
         </p>
+        <h3>Supported Chains</h3>
         <div class="chains-container">
           <a
             href="https://moralis.com/top/trending/tokens/solana"
@@ -879,11 +922,6 @@
                 </clipPath>
               </defs>
             </svg>
-          </a>
-        </div>
-        <div class="cta-container">
-          <a href="https://moralis.com" target="_blank" class="cta-button">
-            Find Trending Tokens
           </a>
         </div>
       </div>
