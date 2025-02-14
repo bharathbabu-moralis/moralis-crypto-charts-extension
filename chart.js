@@ -13,6 +13,7 @@ const CHAIN_IDS = {
   "0xe708": "linea",
   "0xfa": "fantom",
   "0x171": "pulse",
+  "0x7e4": "ronin",
 };
 
 const getBackgroundColor = (config) =>

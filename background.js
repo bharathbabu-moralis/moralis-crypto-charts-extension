@@ -3,23 +3,30 @@ function isSolanaAddress(text) {
   return /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(text.trim());
 }
 
-// Create context menu item when extension is installed
+function isValidAddress(text) {
+  if (!text) return false;
+  // Solana address format
+  const isSolana = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(text.trim());
+  // EVM address format
+  const isEVM = /^0x[a-fA-F0-9]{40}$/.test(text.trim());
+  return { isSolana, isEVM };
+}
+
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
-    id: "viewSolanaChart",
+    id: "viewCryptoChart",
     title: "View Chart",
     contexts: ["selection"],
   });
 });
 
-// Handle context menu click
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === "viewSolanaChart") {
+  if (info.menuItemId === "viewCryptoChart") {
     const selectedText = info.selectionText;
-    if (isSolanaAddress(selectedText)) {
-      // Store the address temporarily
+    const { isSolana, isEVM } = isValidAddress(selectedText);
+
+    if (isSolana || isEVM) {
       chrome.storage.local.set({ selectedAddress: selectedText.trim() }, () => {
-        // Open the popup
         chrome.action.openPopup();
       });
     }

@@ -1,27 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
   const addressInput = document.getElementById("address-input");
-  const loadButton = document.getElementById("load-chart");
+  const chainSelector = document.getElementById("chain-selector");
+  const chainSelect = document.getElementById("chain-select");
   const instructions = document.querySelector(".instructions");
   const chartContainer = document.getElementById(
     "price-chart-widget-container"
   );
 
-  function isSolanaAddress(text) {
-    if (!text) return false;
-    return /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(text.trim());
-  }
-
-  function loadChart(address) {
-    // Hide instructions and show chart
+  function loadChart(address, chainId) {
     instructions.style.display = "none";
     chartContainer.style.display = "block";
-
-    // Clear any existing chart
     chartContainer.innerHTML = "";
 
     window.createMyWidget("price-chart-widget-container", {
       autoSize: true,
-      chainId: "solana",
+      chainId: chainId,
       tokenAddress: address,
       defaultInterval: "60",
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone ?? "Etc/UTC",
@@ -38,33 +31,62 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Initially hide the chart container
+  function isValidAddress(text) {
+    if (!text) return false;
+    // Solana address format
+    const isSolana = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(text.trim());
+    // EVM address format
+    const isEVM = /^0x[a-fA-F0-9]{40}$/.test(text.trim());
+    return { isSolana, isEVM };
+  }
+
+  function handleAddressInput(address) {
+    const { isSolana, isEVM } = isValidAddress(address);
+
+    chainSelector.style.display = "block"; // Always show chain selector
+
+    if (isSolana) {
+      chainSelect.value = "solana"; // Pre-select Solana
+      loadChart(address, "solana");
+    } else if (isEVM) {
+      chainSelect.value = ""; // Reset to "Select Chain"
+      chartContainer.style.display = "none";
+      instructions.style.display = "block";
+    } else {
+      instructions.style.display = "block";
+      chartContainer.style.display = "none";
+      chainSelect.value = ""; // Reset to "Select Chain"
+    }
+  }
+
+  // Show chain selector by default when opening extension
+  chainSelector.style.display = "block";
   chartContainer.style.display = "none";
 
   // Check for stored address when popup opens
   chrome.storage.local.get(["selectedAddress"], function (result) {
-    if (result.selectedAddress && isSolanaAddress(result.selectedAddress)) {
+    if (result.selectedAddress) {
       addressInput.value = result.selectedAddress;
-      loadChart(result.selectedAddress);
-      // Clear the stored address
+      handleAddressInput(result.selectedAddress);
       chrome.storage.local.remove("selectedAddress");
     }
   });
 
-  // Manual input handling
-  loadButton.addEventListener("click", () => {
+  // Handle chain selection
+  chainSelect.addEventListener("change", () => {
     const address = addressInput.value.trim();
-    if (isSolanaAddress(address)) {
-      loadChart(address);
+    if (
+      address &&
+      (isValidAddress(address).isEVM || isValidAddress(address).isSolana) &&
+      chainSelect.value
+    ) {
+      loadChart(address, chainSelect.value);
     }
   });
 
-  addressInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      const address = addressInput.value.trim();
-      if (isSolanaAddress(address)) {
-        loadChart(address);
-      }
-    }
+  // Handle address input changes
+  addressInput.addEventListener("input", () => {
+    const address = addressInput.value.trim();
+    handleAddressInput(address);
   });
 });

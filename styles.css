@@ -55,3 +55,40 @@
   .moralis-link:hover {
     text-decoration: underline;
   }
+
+  .chain-dropdown {
+    padding: 10px 14px;
+    border: 1px solid #0d2035;
+    border-radius: 6px;
+    background: #0d2035;
+    color: #ffffff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  .chain-dropdown:focus {
+    outline: none;
+    border-color: #6b8aff;
+    box-shadow: 0 0 0 2px rgba(107, 138, 255, 0.2);
+  }
+  
+  .input-container {
+    display: flex;
+    padding: 16px;
+    gap: 10px;
+    background: rgba(13, 32, 53, 0.3);
+    align-items: center;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  button:disabled:hover {
+    background: #6b8aff;
+    transform: none;
+    box-shadow: none;
+  }
