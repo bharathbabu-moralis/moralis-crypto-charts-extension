@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
           click and view chart!
         </p>
         <h3>Supported Chains</h3>
-        <div class="chains-container">
+       <div class="chains-container">
           <a
-            href="https://moralis.com/top/trending/tokens/solana"
+            href="https://moralis.com/top/trending/tokens/solana?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/ethereum"
+            href="https://moralis.com/top/trending/tokens/ethereum?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/ronin"
+            href="https://moralis.com/top/trending/tokens/ronin?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/binance"
+            href="https://moralis.com/top/trending/tokens/binance?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/base"
+            href="https://moralis.com/top/trending/tokens/base?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/arbitrum"
+            href="https://moralis.com/top/trending/tokens/arbitrum?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/polygon"
+            href="https://moralis.com/top/trending/tokens/polygon?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/optimism"
+            href="https://moralis.com/top/trending/tokens/optimism?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/linea"
+            href="https://moralis.com/top/trending/tokens/linea?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/fantom"
+            href="https://moralis.com/top/trending/tokens/fantom?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >
@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
           <a
-            href="https://moralis.com/top/trending/tokens/pulse"
+            href="https://moralis.com/top/trending/tokens/pulse?utm_source=chrome_extension&utm_medium=price_chart_widget"
             target="_blank"
             class="chain-link"
           >

@@ -24,9 +24,7 @@ const getBackgroundColor = (config) =>
     : config?.backgroundColor || "#071321";
 
 const getUtmString = (params) => {
-  return `?utm_source=${encodeURIComponent(
-    params.source
-  )}&utm_medium=${encodeURIComponent(params.medium)}`;
+  return `?utm_source=chrome_extension&utm_medium=price_chart_widget`;
 };
 
 const getRedirectUrl = (baseUrl, chainId, utmParams, config) => {
